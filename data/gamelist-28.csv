@@ -1,0 +1,599 @@
+,game_id,moby_url,title
+0,124,https://www.mobygames.com/game/124/rampage/,Rampage
+1,133,https://www.mobygames.com/game/133/jungle-hunt/,Jungle Hunt
+2,137,https://www.mobygames.com/game/137/galaxian/,Galaxian
+3,138,https://www.mobygames.com/game/138/pac-man/,Pac-Man
+4,139,https://www.mobygames.com/game/139/dig-dug/,Dig Dug
+5,140,https://www.mobygames.com/game/140/defender/,Defender
+6,141,https://www.mobygames.com/game/141/centipede/,Centipede
+7,298,https://www.mobygames.com/game/298/tapper/,Tapper
+8,360,https://www.mobygames.com/game/360/battlezone/,Battlezone
+9,467,https://www.mobygames.com/game/467/burgertime/,BurgerTime
+10,574,https://www.mobygames.com/game/574/donkey-kong/,Donkey Kong
+11,575,https://www.mobygames.com/game/575/moon-patrol/,Moon Patrol
+12,576,https://www.mobygames.com/game/576/ms-pac-man/,Ms. Pac-Man
+13,984,https://www.mobygames.com/game/984/pole-position/,Pole Position
+14,1178,https://www.mobygames.com/game/1178/montezumas-revenge/,Montezuma's Revenge
+15,1215,https://www.mobygames.com/game/1215/winter-games/,Winter Games
+16,1540,https://www.mobygames.com/game/1540/frogger/,Frogger
+17,1618,https://www.mobygames.com/game/1618/commando/,Commando
+18,1813,https://www.mobygames.com/game/1813/buck-rogers-planet-of-zoom/,Buck Rogers: Planet of Zoom
+19,1823,https://www.mobygames.com/game/1823/california-games/,California Games
+20,1839,https://www.mobygames.com/game/1839/double-dragon/,Double Dragon
+21,2619,https://www.mobygames.com/game/2619/ghostbusters/,Ghostbusters
+22,3929,https://www.mobygames.com/game/3929/star-wars/,Star Wars
+23,3955,https://www.mobygames.com/game/3955/congo-bongo/,Congo Bongo
+24,4059,https://www.mobygames.com/game/4059/joust/,Joust
+25,4632,https://www.mobygames.com/game/4632/boulder-dash/,Boulder Dash
+26,4642,https://www.mobygames.com/game/4642/klax/,Klax
+27,5386,https://www.mobygames.com/game/5386/pengo/,Pengo
+28,5952,https://www.mobygames.com/game/5952/stargate/,Stargate
+29,6739,https://www.mobygames.com/game/6739/ikari-warriors/,Ikari Warriors
+30,6946,https://www.mobygames.com/game/6946/pitfall-ii-lost-caverns/,Pitfall II: Lost Caverns
+31,6947,https://www.mobygames.com/game/6947/river-raid/,River Raid
+32,7265,https://www.mobygames.com/game/7265/frogger-ii-threeedeep/,Frogger II: ThreeeDeep!
+33,7301,https://www.mobygames.com/game/7301/mario-bros/,Mario Bros.
+34,7302,https://www.mobygames.com/game/7302/donkey-kong-junior/,Donkey Kong Junior
+35,7511,https://www.mobygames.com/game/7511/kung-fu-master/,Kung-Fu Master
+36,7668,https://www.mobygames.com/game/7668/spy-hunter/,Spy Hunter
+37,7720,https://www.mobygames.com/game/7720/gyruss/,Gyruss
+38,8255,https://www.mobygames.com/game/8255/xenophobe/,Xenophobe
+39,8724,https://www.mobygames.com/game/8724/miner-2049er/,Miner 2049er
+40,8774,https://www.mobygames.com/game/8774/star-wars-return-of-the-jedi-death-star-battle/,Star Wars: Return of the Jedi - Death Star Battle
+41,8793,https://www.mobygames.com/game/8793/pitfall/,Pitfall!
+42,8806,https://www.mobygames.com/game/8806/space-invaders/,Space Invaders
+43,8843,https://www.mobygames.com/game/8843/basic-math/,Basic Math
+44,8845,https://www.mobygames.com/game/8845/entombed/,Entombed
+45,8847,https://www.mobygames.com/game/8847/berzerk/,Berzerk
+46,8851,https://www.mobygames.com/game/8851/combat/,Combat
+47,8853,https://www.mobygames.com/game/8853/qbert/,Q*bert
+48,8872,https://www.mobygames.com/game/8872/asteroids/,Asteroids
+49,8874,https://www.mobygames.com/game/8874/et-the-extra-terrestrial/,E.T. The Extra-Terrestrial
+50,8883,https://www.mobygames.com/game/8883/armor-battle/,Armor Battle
+51,8888,https://www.mobygames.com/game/8888/space-battle/,Space Battle
+52,8889,https://www.mobygames.com/game/8889/tron-deadly-discs/,TRON: Deadly Discs
+53,8904,https://www.mobygames.com/game/8904/kaboom/,Kaboom!
+54,8923,https://www.mobygames.com/game/8923/cosmic-ark/,Cosmic Ark
+55,8929,https://www.mobygames.com/game/8929/beamrider/,Beamrider
+56,8987,https://www.mobygames.com/game/8987/phoenix/,Phoenix
+57,8989,https://www.mobygames.com/game/8989/kangaroo/,Kangaroo
+58,9001,https://www.mobygames.com/game/9001/breakout/,Breakout
+59,9008,https://www.mobygames.com/game/9008/laser-blast/,Laser Blast
+60,9010,https://www.mobygames.com/game/9010/commando-raid/,Commando Raid
+61,9011,https://www.mobygames.com/game/9011/megamania/,Megamania
+62,9064,https://www.mobygames.com/game/9064/realsports-baseball/,RealSports Baseball
+63,9065,https://www.mobygames.com/game/9065/jr-pac-man/,Jr. Pac-Man
+64,9067,https://www.mobygames.com/game/9067/stampede/,Stampede
+65,9074,https://www.mobygames.com/game/9074/river-raid-ii/,River Raid II
+66,9112,https://www.mobygames.com/game/9112/millipede/,Millipede
+67,9113,https://www.mobygames.com/game/9113/hunt-score/,Hunt & Score
+68,9143,https://www.mobygames.com/game/9143/warlords/,Warlords
+69,9144,https://www.mobygames.com/game/9144/taz/,Taz
+70,9173,https://www.mobygames.com/game/9173/freeway/,Freeway
+71,9174,https://www.mobygames.com/game/9174/crystal-castles/,Crystal Castles
+72,9177,https://www.mobygames.com/game/9177/missile-command/,Missile Command
+73,9202,https://www.mobygames.com/game/9202/star-wars-the-empire-strikes-back/,Star Wars: The Empire Strikes Back
+74,9207,https://www.mobygames.com/game/9207/sprint-master/,Sprint Master
+75,9260,https://www.mobygames.com/game/9260/super-breakout/,Super Breakout
+76,9262,https://www.mobygames.com/game/9262/space-cavern/,Space Cavern
+77,9263,https://www.mobygames.com/game/9263/demons-to-diamonds/,Demons to Diamonds
+78,9306,https://www.mobygames.com/game/9306/bump-n-jump/,Bump 'N' Jump
+79,9317,https://www.mobygames.com/game/9317/star-raiders/,Star Raiders
+80,9331,https://www.mobygames.com/game/9331/chopper-command/,Chopper Command
+81,9358,https://www.mobygames.com/game/9358/dragonfire/,Dragonfire
+82,9378,https://www.mobygames.com/game/9378/popeye/,Popeye
+83,9396,https://www.mobygames.com/game/9396/yars-revenge/,Yars' Revenge
+84,9447,https://www.mobygames.com/game/9447/star-wars-jedi-arena/,Star Wars: Jedi Arena
+85,9448,https://www.mobygames.com/game/9448/demon-attack/,Demon Attack
+86,9475,https://www.mobygames.com/game/9475/keystone-kapers/,Keystone Kapers
+87,9522,https://www.mobygames.com/game/9522/skydiver/,Skydiver
+88,9550,https://www.mobygames.com/game/9550/dark-chambers/,Dark Chambers
+89,9686,https://www.mobygames.com/game/9686/lock-n-chase/,Lock 'n' Chase
+90,9695,https://www.mobygames.com/game/9695/robot-tank/,Robot Tank
+91,9700,https://www.mobygames.com/game/9700/krull/,Krull
+92,9701,https://www.mobygames.com/game/9701/realsports-football/,RealSports Football
+93,9748,https://www.mobygames.com/game/9748/circus-atari/,Circus Atari
+94,9750,https://www.mobygames.com/game/9750/night-driver/,Night Driver
+95,9751,https://www.mobygames.com/game/9751/haunted-house/,Haunted House
+96,9762,https://www.mobygames.com/game/9762/mouse-trap/,Mouse Trap
+97,9764,https://www.mobygames.com/game/9764/mr-do/,Mr. Do!
+98,9766,https://www.mobygames.com/game/9766/carnival/,Carnival
+99,9771,https://www.mobygames.com/game/9771/venture/,Venture
+100,9777,https://www.mobygames.com/game/9777/airlock/,Airlock
+101,9789,https://www.mobygames.com/game/9789/tacscan/,Tac/Scan
+102,9791,https://www.mobygames.com/game/9791/golf/,Golf
+103,9801,https://www.mobygames.com/game/9801/video-pinball/,Video Pinball
+104,9802,https://www.mobygames.com/game/9802/grand-prix/,Grand Prix
+105,9806,https://www.mobygames.com/game/9806/vanguard/,Vanguard
+106,9807,https://www.mobygames.com/game/9807/pressure-cooker/,Pressure Cooker
+107,9905,https://www.mobygames.com/game/9905/off-the-wall/,Off the Wall
+108,9957,https://www.mobygames.com/game/9957/reactor/,Reactor
+109,9959,https://www.mobygames.com/game/9959/gi-joe-cobra-strike/,G.I. Joe: Cobra Strike
+110,9960,https://www.mobygames.com/game/9960/spider-man/,Spider-Man
+111,10004,https://www.mobygames.com/game/10004/solar-fox/,Solar Fox
+112,10005,https://www.mobygames.com/game/10005/crackpots/,Crackpots
+113,10011,https://www.mobygames.com/game/10011/astrosmash/,Astrosmash
+114,10146,https://www.mobygames.com/game/10146/space-jockey/,Space Jockey
+115,10150,https://www.mobygames.com/game/10150/hero/,H.E.R.O.
+116,10154,https://www.mobygames.com/game/10154/communist-mutants-from-space/,Communist Mutants from Space
+117,10156,https://www.mobygames.com/game/10156/fireball/,Fireball
+118,10212,https://www.mobygames.com/game/10212/gorf/,Gorf
+119,10218,https://www.mobygames.com/game/10218/smurf-rescue-in-gargamels-castle/,Smurf: Rescue in Gargamel's Castle
+120,10248,https://www.mobygames.com/game/10248/atlantis/,Atlantis
+121,10261,https://www.mobygames.com/game/10261/roc-n-rope/,Roc 'N Rope
+122,10350,https://www.mobygames.com/game/10350/journey-escape/,Journey Escape
+123,10370,https://www.mobygames.com/game/10370/outlaw/,Outlaw
+124,10387,https://www.mobygames.com/game/10387/realsports-volleyball/,RealSports Volleyball
+125,10388,https://www.mobygames.com/game/10388/night-stalker/,Night Stalker
+126,10394,https://www.mobygames.com/game/10394/nfl-football/,NFL Football
+127,10412,https://www.mobygames.com/game/10412/star-strike/,Star Strike
+128,10413,https://www.mobygames.com/game/10413/private-eye/,Private Eye
+129,10415,https://www.mobygames.com/game/10415/bridge/,Bridge
+130,10429,https://www.mobygames.com/game/10429/fishing-derby/,Fishing Derby
+131,10430,https://www.mobygames.com/game/10430/spider-fighter/,Spider Fighter
+132,10452,https://www.mobygames.com/game/10452/plaque-attack/,Plaque Attack
+133,10455,https://www.mobygames.com/game/10455/seaquest/,Seaquest
+134,10473,https://www.mobygames.com/game/10473/tennis/,Tennis
+135,10474,https://www.mobygames.com/game/10474/dragster/,Dragster
+136,10492,https://www.mobygames.com/game/10492/gravitar/,Gravitar
+137,10504,https://www.mobygames.com/game/10504/desert-falcon/,Desert Falcon
+138,10506,https://www.mobygames.com/game/10506/solaris/,Solaris
+139,10526,https://www.mobygames.com/game/10526/crossbow/,Crossbow
+140,10586,https://www.mobygames.com/game/10586/sea-battle/,Sea Battle
+141,10630,https://www.mobygames.com/game/10630/mr-dos-castle/,Mr. Do!'s Castle
+142,10657,https://www.mobygames.com/game/10657/skiing/,Skiing
+143,10737,https://www.mobygames.com/game/10737/blueprint/,Blueprint
+144,10745,https://www.mobygames.com/game/10745/wizard-of-wor/,Wizard of Wor
+145,10770,https://www.mobygames.com/game/10770/mountain-king/,Mountain King
+146,10840,https://www.mobygames.com/game/10840/super-cobra/,Super Cobra
+147,10841,https://www.mobygames.com/game/10841/tutankham/,Tutankham
+148,10876,https://www.mobygames.com/game/10876/skeet-shoot/,Skeet Shoot
+149,10914,https://www.mobygames.com/game/10914/elevator-action/,Elevator Action
+150,10918,https://www.mobygames.com/game/10918/maze-craze-a-game-of-cops-n-robbers/,Maze Craze: A Game of Cops 'n Robbers
+151,10919,https://www.mobygames.com/game/10919/human-cannonball/,Human Cannonball
+152,10934,https://www.mobygames.com/game/10934/surround/,Surround
+153,10935,https://www.mobygames.com/game/10935/slot-machine/,Slot Machine
+154,10936,https://www.mobygames.com/game/10936/dodge-em/,Dodge 'Em
+155,10942,https://www.mobygames.com/game/10942/air-sea-battle/,Air-Sea Battle
+156,10944,https://www.mobygames.com/game/10944/star-ship/,Star Ship
+157,11026,https://www.mobygames.com/game/11026/barnstorming/,Barnstorming
+158,11028,https://www.mobygames.com/game/11028/hangman/,Hangman
+159,11162,https://www.mobygames.com/game/11162/adventure/,Adventure
+160,11238,https://www.mobygames.com/game/11238/cracked/,Crack'ed
+161,11240,https://www.mobygames.com/game/11240/fatal-run/,Fatal Run
+162,11335,https://www.mobygames.com/game/11335/realsports-tennis/,RealSports Tennis
+163,11400,https://www.mobygames.com/game/11400/james-bond-007/,James Bond 007
+164,11418,https://www.mobygames.com/game/11418/amidar/,Amidar
+165,11428,https://www.mobygames.com/game/11428/frostbite/,Frostbite
+166,11497,https://www.mobygames.com/game/11497/dolphin/,Dolphin
+167,11498,https://www.mobygames.com/game/11498/cosmic-commuter/,Cosmic Commuter
+168,11499,https://www.mobygames.com/game/11499/oink/,Oink!
+169,11537,https://www.mobygames.com/game/11537/the-activision-decathlon/,The Activision Decathlon
+170,11588,https://www.mobygames.com/game/11588/enduro/,Enduro
+171,11589,https://www.mobygames.com/game/11589/boxing/,Boxing
+172,11680,https://www.mobygames.com/game/11680/codebreaker/,Codebreaker
+173,11709,https://www.mobygames.com/game/11709/strawberry-shortcake-musical-match-ups/,Strawberry Shortcake: Musical Match-Ups
+174,11710,https://www.mobygames.com/game/11710/indy-500/,Indy 500
+175,11727,https://www.mobygames.com/game/11727/video-olympics/,Video Olympics
+176,11730,https://www.mobygames.com/game/11730/suicide-mission/,Suicide Mission
+177,11917,https://www.mobygames.com/game/11917/frog-bog/,Frog Bog
+178,11991,https://www.mobygames.com/game/11991/space-shuttle-a-journey-into-space/,Space Shuttle: A Journey into Space
+179,12177,https://www.mobygames.com/game/12177/star-trek-strategic-operations-simulator/,Star Trek: Strategic Operations Simulator
+180,12192,https://www.mobygames.com/game/12192/street-racer/,Street Racer
+181,12266,https://www.mobygames.com/game/12266/lochjaw/,Lochjaw
+182,12267,https://www.mobygames.com/game/12267/lost-luggage/,Lost Luggage
+183,12274,https://www.mobygames.com/game/12274/guardian/,Guardian
+184,12276,https://www.mobygames.com/game/12276/wabbit/,Wabbit
+185,12329,https://www.mobygames.com/game/12329/major-league-baseball/,Major League Baseball
+186,12344,https://www.mobygames.com/game/12344/nasl-soccer/,NASL Soccer
+187,12347,https://www.mobygames.com/game/12347/quest-for-quintana-roo/,Quest for Quintana Roo
+188,12663,https://www.mobygames.com/game/12663/realsports-soccer/,RealSports Soccer
+189,12834,https://www.mobygames.com/game/12834/time-pilot/,Time Pilot
+190,12884,https://www.mobygames.com/game/12884/acid-drop/,Acid Drop
+191,13010,https://www.mobygames.com/game/13010/air-raiders/,Air Raiders
+192,13022,https://www.mobygames.com/game/13022/summer-games/,Summer Games
+193,13034,https://www.mobygames.com/game/13034/star-fox/,Star Fox
+194,13080,https://www.mobygames.com/game/13080/coconuts/,CocoNuts
+195,13141,https://www.mobygames.com/game/13141/qberts-qubes/,Q*bert's Qubes
+196,13235,https://www.mobygames.com/game/13235/fire-fly/,Fire Fly
+197,13251,https://www.mobygames.com/game/13251/eggomania/,Eggomania
+198,13252,https://www.mobygames.com/game/13252/picnic/,Picnic
+199,13253,https://www.mobygames.com/game/13253/squeeze-box/,Squeeze Box
+200,13254,https://www.mobygames.com/game/13254/sneak-n-peek/,Sneak 'n Peek
+201,13264,https://www.mobygames.com/game/13264/mad/,M.A.D.
+202,13265,https://www.mobygames.com/game/13265/raft-rider/,Raft Rider
+203,13266,https://www.mobygames.com/game/13266/towering-inferno/,Towering Inferno
+204,13267,https://www.mobygames.com/game/13267/gopher/,Gopher
+205,13301,https://www.mobygames.com/game/13301/dan-kitchens-tomcat-the-f-14-fighter-simulator/,Dan Kitchen's Tomcat: The F-14 Fighter Simulator
+206,13302,https://www.mobygames.com/game/13302/mogul-maniac/,Mogul Maniac
+207,13309,https://www.mobygames.com/game/13309/swedish-erotica-bachelor-party/,Swedish Erotica: Bachelor Party
+208,13384,https://www.mobygames.com/game/13384/3-d-tic-tac-toe/,3-D Tic-Tac-Toe
+209,13386,https://www.mobygames.com/game/13386/obelix/,Obelix
+210,13401,https://www.mobygames.com/game/13401/name-this-game/,Name this Game
+211,13402,https://www.mobygames.com/game/13402/piece-o-cake/,Piece o' Cake
+212,13403,https://www.mobygames.com/game/13403/word-zapper/,Word Zapper
+213,13550,https://www.mobygames.com/game/13550/phaser-patrol/,Phaser Patrol
+214,13576,https://www.mobygames.com/game/13576/snoopy-and-the-red-baron/,Snoopy and the Red Baron
+215,13581,https://www.mobygames.com/game/13581/superman/,Superman
+216,13603,https://www.mobygames.com/game/13603/swedish-erotica-custers-revenge/,Swedish Erotica: Custer's Revenge
+217,13631,https://www.mobygames.com/game/13631/crazy-climber/,Crazy Climber
+218,13659,https://www.mobygames.com/game/13659/halloween/,Halloween
+219,13803,https://www.mobygames.com/game/13803/adventures-of-tron/,Adventures of TRON
+220,13864,https://www.mobygames.com/game/13864/realsports-boxing/,RealSports Boxing
+221,13888,https://www.mobygames.com/game/13888/radar-lock/,Radar Lock
+222,13892,https://www.mobygames.com/game/13892/brain-games/,Brain Games
+223,13894,https://www.mobygames.com/game/13894/sorcerer/,Sorcerer
+224,13909,https://www.mobygames.com/game/13909/moonsweeper/,Moonsweeper
+225,13914,https://www.mobygames.com/game/13914/front-line/,Front Line
+226,14004,https://www.mobygames.com/game/14004/sea-monster/,Sea Monster
+227,14089,https://www.mobygames.com/game/14089/omega-race/,Omega Race
+228,14109,https://www.mobygames.com/game/14109/pooyan/,Pooyan
+229,14226,https://www.mobygames.com/game/14226/mission-3000/,Mission 3000
+230,14399,https://www.mobygames.com/game/14399/football/,Football
+231,14452,https://www.mobygames.com/game/14452/sentinel/,Sentinel
+232,14468,https://www.mobygames.com/game/14468/title-match-pro-wrestling/,Title Match Pro Wrestling
+233,14749,https://www.mobygames.com/game/14749/bermuda-triangle/,Bermuda Triangle
+234,14789,https://www.mobygames.com/game/14789/london-blitz/,London Blitz
+235,14879,https://www.mobygames.com/game/14879/flag-capture/,Flag Capture
+236,14905,https://www.mobygames.com/game/14905/basketball/,Basketball
+237,14949,https://www.mobygames.com/game/14949/quadrun/,Quadrun
+238,14958,https://www.mobygames.com/game/14958/open-sesame/,"Open, Sesame!"
+239,14960,https://www.mobygames.com/game/14960/bowling/,Bowling
+240,14996,https://www.mobygames.com/game/14996/raiders-of-the-lost-ark/,Raiders of the Lost Ark
+241,15219,https://www.mobygames.com/game/15219/karate/,Karate
+242,15227,https://www.mobygames.com/game/15227/ghost-manor/,Ghost Manor
+243,15334,https://www.mobygames.com/game/15334/swordquest-earthworld/,SwordQuest: EarthWorld
+244,15344,https://www.mobygames.com/game/15344/swordquest-fireworld/,SwordQuest: FireWorld
+245,15345,https://www.mobygames.com/game/15345/swordquest-waterworld/,SwordQuest: WaterWorld
+246,15744,https://www.mobygames.com/game/15744/threshold/,Threshold
+247,15761,https://www.mobygames.com/game/15761/spikes-peak/,Spike's Peak
+248,15763,https://www.mobygames.com/game/15763/xonox-double-ender-spikes-peak-and-ghost-manor/,Xonox Double-Ender: Spike's Peak and Ghost Manor
+249,15766,https://www.mobygames.com/game/15766/chuck-norris-superkicks/,Chuck Norris Superkicks
+250,15768,https://www.mobygames.com/game/15768/xonox-double-ender-chuck-norris-superkicks-and-ghost-manor/,Xonox Double Ender: Chuck Norris Superkicks and Ghost Manor
+251,15769,https://www.mobygames.com/game/15769/xonox-double-ender-chuck-norris-superkicks-and-spikes-peak/,Xonox Double Ender: Chuck Norris Superkicks and Spike's Peak
+252,15775,https://www.mobygames.com/game/15775/artillery-duel/,Artillery Duel
+253,15776,https://www.mobygames.com/game/15776/xonox-double-ender-artillery-duel-and-chuck-norris-superkicks/,Xonox Double-Ender: Artillery Duel and Chuck Norris Superkicks
+254,15777,https://www.mobygames.com/game/15777/xonox-double-ender-artillery-duel-and-ghost-manor/,Xonox Double Ender: Artillery Duel and Ghost Manor
+255,15851,https://www.mobygames.com/game/15851/motocross-racer/,Motocross Racer
+256,15909,https://www.mobygames.com/game/15909/tomarc-the-barbarian/,Tomarc the Barbarian
+257,15910,https://www.mobygames.com/game/15910/xonox-double-ender-tomarc-the-barbarian-and-motocross-racer/,Xonox Double-Ender: Tomarc the Barbarian and Motocross Racer
+258,16020,https://www.mobygames.com/game/16020/robin-hood/,Robin Hood
+259,16027,https://www.mobygames.com/game/16027/sir-lancelot/,Sir Lancelot
+260,16029,https://www.mobygames.com/game/16029/xonox-double-ender-robin-hood-and-sir-lancelot/,Xonox Double Ender: Robin Hood and Sir Lancelot
+261,16400,https://www.mobygames.com/game/16400/thrust/,Thrust
+262,16472,https://www.mobygames.com/game/16472/chase-the-chuck-wagon/,Chase the Chuck Wagon
+263,16473,https://www.mobygames.com/game/16473/riddle-of-the-sphinx/,Riddle of the Sphinx
+264,16517,https://www.mobygames.com/game/16517/quick-step/,Quick Step
+265,16583,https://www.mobygames.com/game/16583/solar-storm/,Solar Storm
+266,16614,https://www.mobygames.com/game/16614/fathom/,Fathom
+267,16627,https://www.mobygames.com/game/16627/wing-war/,Wing War
+268,16668,https://www.mobygames.com/game/16668/sorcerers-apprentice/,Sorcerer's Apprentice
+269,16706,https://www.mobygames.com/game/16706/kool-aid-man/,Kool-Aid Man
+270,17012,https://www.mobygames.com/game/17012/no-escape/,No Escape!
+271,17181,https://www.mobygames.com/game/17181/fire-fighter/,Fire Fighter
+272,17182,https://www.mobygames.com/game/17182/trick-shot/,Trick Shot
+273,17183,https://www.mobygames.com/game/17183/laser-gates/,Laser Gates
+274,17396,https://www.mobygames.com/game/17396/subterranea/,Subterranea
+275,17564,https://www.mobygames.com/game/17564/blackjack/,Blackjack
+276,18206,https://www.mobygames.com/game/18206/dragonstomper/,DragonStomper
+277,18251,https://www.mobygames.com/game/18251/star-voyager/,Star Voyager
+278,18252,https://www.mobygames.com/game/18252/shootin-gallery/,Shootin' Gallery
+279,19034,https://www.mobygames.com/game/19034/sky-jinks/,Sky Jinks
+280,19099,https://www.mobygames.com/game/19099/davids-midnight-magic/,David's Midnight Magic
+281,19166,https://www.mobygames.com/game/19166/starmaster/,Starmaster
+282,19167,https://www.mobygames.com/game/19167/survival-run/,Survival Run
+283,19177,https://www.mobygames.com/game/19177/spitfire-attack/,Spitfire Attack
+284,19178,https://www.mobygames.com/game/19178/pepsi-invaders/,Pepsi Invaders
+285,19482,https://www.mobygames.com/game/19482/slot-racers/,Slot Racers
+286,19505,https://www.mobygames.com/game/19505/track-field/,Track & Field
+287,19721,https://www.mobygames.com/game/19721/tunnel-runner/,Tunnel Runner
+288,19809,https://www.mobygames.com/game/19809/bank-heist/,Bank Heist
+289,19861,https://www.mobygames.com/game/19861/mash/,M*A*S*H
+290,19862,https://www.mobygames.com/game/19862/turmoil/,Turmoil
+291,19894,https://www.mobygames.com/game/19894/checkers/,Checkers
+292,19903,https://www.mobygames.com/game/19903/miniature-golf/,Miniature Golf
+293,20198,https://www.mobygames.com/game/20198/home-run/,Home Run
+294,20751,https://www.mobygames.com/game/20751/fantastic-voyage/,Fantastic Voyage
+295,20811,https://www.mobygames.com/game/20811/ice-hockey/,Ice Hockey
+296,21492,https://www.mobygames.com/game/21492/tooth-protectors/,Tooth Protectors
+297,21563,https://www.mobygames.com/game/21563/the-texas-chainsaw-massacre/,The Texas Chainsaw Massacre
+298,21599,https://www.mobygames.com/game/21599/atari-video-cube/,Atari Video Cube
+299,21622,https://www.mobygames.com/game/21622/pick-n-pile/,Pick 'n Pile
+300,21659,https://www.mobygames.com/game/21659/air-raid/,Air Raid
+301,21938,https://www.mobygames.com/game/21938/action-pak/,Action Pak
+302,22218,https://www.mobygames.com/game/22218/canyon-bomber/,Canyon Bomber
+303,22748,https://www.mobygames.com/game/22748/alien/,Alien
+304,22752,https://www.mobygames.com/game/22752/beany-bopper/,Beany Bopper
+305,22757,https://www.mobygames.com/game/22757/crypts-of-chaos/,Crypts of Chaos
+306,22767,https://www.mobygames.com/game/22767/the-earth-dies-screaming/,The Earth Dies Screaming
+307,22822,https://www.mobygames.com/game/22822/crash-dive/,Crash Dive
+308,22836,https://www.mobygames.com/game/22836/deadly-duck/,Deadly Duck
+309,22850,https://www.mobygames.com/game/22850/back-to-school-pak/,Back to School Pak
+310,22851,https://www.mobygames.com/game/22851/bmx-air-master/,BMX Air Master
+311,22888,https://www.mobygames.com/game/22888/flash-gordon/,Flash Gordon
+312,22900,https://www.mobygames.com/game/22900/alpha-beam-with-ernie/,Alpha Beam with Ernie
+313,22902,https://www.mobygames.com/game/22902/fast-eddie/,Fast Eddie
+314,22904,https://www.mobygames.com/game/22904/big-birds-egg-catch/,Big Bird's Egg Catch
+315,22907,https://www.mobygames.com/game/22907/cookie-monster-munch/,Cookie Monster Munch
+316,22917,https://www.mobygames.com/game/22917/oscars-trash-race/,Oscar's Trash Race
+317,22919,https://www.mobygames.com/game/22919/worm-war-i/,Worm War I
+318,22920,https://www.mobygames.com/game/22920/tape-worm/,Tape Worm
+319,22921,https://www.mobygames.com/game/22921/revenge-of-the-beefsteak-tomatoes/,Revenge of the Beefsteak Tomatoes
+320,22946,https://www.mobygames.com/game/22946/the-music-machine/,The Music Machine
+321,22952,https://www.mobygames.com/game/22952/alpha-shield/,Alpha Shield
+322,22975,https://www.mobygames.com/game/22975/porkys/,Porky's
+323,22987,https://www.mobygames.com/game/22987/mega-force/,Mega Force
+324,22988,https://www.mobygames.com/game/22988/skate-boardin/,Skate Boardin'
+325,22993,https://www.mobygames.com/game/22993/tax-avoiders/,Tax Avoiders
+326,22995,https://www.mobygames.com/game/22995/cosmic-swarm/,Cosmic Swarm
+327,22996,https://www.mobygames.com/game/22996/32-in-1-game-cartridge/,32 in 1 Game Cartridge
+328,23026,https://www.mobygames.com/game/23026/exocet/,Exocet
+329,23074,https://www.mobygames.com/game/23074/malagai/,Malagai
+330,23076,https://www.mobygames.com/game/23076/gauntlet/,Gauntlet
+331,23078,https://www.mobygames.com/game/23078/hunchy-2/,Hunchy 2
+332,23080,https://www.mobygames.com/game/23080/final-approach/,Final Approach
+333,23098,https://www.mobygames.com/game/23098/infiltrate/,Infiltrate
+334,23099,https://www.mobygames.com/game/23099/racquetball/,Racquetball
+335,23100,https://www.mobygames.com/game/23100/spacechase/,Spacechase
+336,23118,https://www.mobygames.com/game/23118/racing-pak/,Racing Pak
+337,23124,https://www.mobygames.com/game/23124/backgammon/,Backgammon
+338,23136,https://www.mobygames.com/game/23136/double-dunk/,Double Dunk
+339,23139,https://www.mobygames.com/game/23139/glacier-patrol/,Glacier Patrol
+340,23140,https://www.mobygames.com/game/23140/math-gran-prix/,Math Gran Prix
+341,23142,https://www.mobygames.com/game/23142/submarine-commander/,Submarine Commander
+342,23143,https://www.mobygames.com/game/23143/universal-chaos/,Universal Chaos
+343,23145,https://www.mobygames.com/game/23145/video-checkers/,Video Checkers
+344,23311,https://www.mobygames.com/game/23311/pigs-in-space-starring-miss-piggy/,Pigs in Space starring Miss Piggy
+345,23335,https://www.mobygames.com/game/23335/road-runner/,Road Runner
+346,23368,https://www.mobygames.com/game/23368/motorodeo/,MotoRodeo
+347,23401,https://www.mobygames.com/game/23401/video-chess/,Video Chess
+348,23418,https://www.mobygames.com/game/23418/casino/,Casino
+349,23427,https://www.mobygames.com/game/23427/secret-quest/,Secret Quest
+350,23672,https://www.mobygames.com/game/23672/super-baseball/,Super Baseball
+351,23673,https://www.mobygames.com/game/23673/championship-soccer/,Championship Soccer
+352,23783,https://www.mobygames.com/game/23783/super-football/,Super Football
+353,23844,https://www.mobygames.com/game/23844/death-trap/,Death Trap
+354,23870,https://www.mobygames.com/game/23870/out-of-control/,Out of Control
+355,23873,https://www.mobygames.com/game/23873/shuttle-orbiter/,Shuttle Orbiter
+356,23946,https://www.mobygames.com/game/23946/3-d-brickaway/,3-D Brickaway
+357,23972,https://www.mobygames.com/game/23972/assault/,Assault
+358,24033,https://www.mobygames.com/game/24033/great-escape/,Great Escape
+359,24038,https://www.mobygames.com/game/24038/wall-defender/,Wall-Defender
+360,24039,https://www.mobygames.com/game/24039/z-tack/,Z-Tack
+361,24051,https://www.mobygames.com/game/24051/berenstain-bears/,Berenstain Bears
+362,24056,https://www.mobygames.com/game/24056/smurfs-save-the-day/,Smurfs Save the Day
+363,24065,https://www.mobygames.com/game/24065/cakewalk/,Cakewalk
+364,24071,https://www.mobygames.com/game/24071/mines-of-minos/,Mines of Minos
+365,24072,https://www.mobygames.com/game/24072/room-of-doom/,Room of Doom
+366,24078,https://www.mobygames.com/game/24078/stronghold/,Stronghold
+367,24139,https://www.mobygames.com/game/24139/bugs/,Bugs
+368,24159,https://www.mobygames.com/game/24159/2-pak-special-alien-force-hoppy/,2 Pak Special: Alien Force & Hoppy
+369,24161,https://www.mobygames.com/game/24161/warplock/,Warplock
+370,24162,https://www.mobygames.com/game/24162/encounter-at-l-5/,Encounter at L-5
+371,24173,https://www.mobygames.com/game/24173/sssnake/,Sssnake
+372,24177,https://www.mobygames.com/game/24177/frankensteins-monster/,Frankenstein's Monster
+373,24178,https://www.mobygames.com/game/24178/new-family-fun-fitness-video-jogger-and-video-reflex/,New Family Fun & Fitness: Video Jogger and Video Reflex
+374,24188,https://www.mobygames.com/game/24188/boing/,Boing!
+375,24269,https://www.mobygames.com/game/24269/marine-wars/,Marine Wars
+376,24290,https://www.mobygames.com/game/24290/swedish-erotica-beat-em-eat-em/,Swedish Erotica: Beat 'Em & Eat 'Em
+377,24295,https://www.mobygames.com/game/24295/bachelor-partygigolo/,Bachelor Party/Gigolo
+378,24390,https://www.mobygames.com/game/24390/sky-skipper/,Sky Skipper
+379,24392,https://www.mobygames.com/game/24392/strategy-x/,Strategy X
+380,24481,https://www.mobygames.com/game/24481/bachelorette-partyburning-desire/,Bachelorette Party/Burning Desire
+381,24673,https://www.mobygames.com/game/24673/philly-flashercathouse-blues/,Philly Flasher/Cathouse Blues
+382,24837,https://www.mobygames.com/game/24837/glib/,Glib
+383,24936,https://www.mobygames.com/game/24936/steeplechase/,Steeplechase
+384,24937,https://www.mobygames.com/game/24937/stellar-track/,Stellar Track
+385,25045,https://www.mobygames.com/game/25045/2005-minigame-multicart/,2005 MiniGame MultiCart
+386,25093,https://www.mobygames.com/game/25093/up-n-down/,Up 'n Down
+387,25171,https://www.mobygames.com/game/25171/x-man/,X-Man
+388,25172,https://www.mobygames.com/game/25172/deep-scan/,Deep Scan
+389,25206,https://www.mobygames.com/game/25206/elis-ladder/,Eli's Ladder
+390,25553,https://www.mobygames.com/game/25553/thunderground/,Thunderground
+391,25661,https://www.mobygames.com/game/25661/jungle-feverknight-on-the-town/,Jungle Fever/Knight on the Town
+392,25725,https://www.mobygames.com/game/25725/beat-em-eat-emlady-in-wading/,Beat 'Em & Eat 'Em/Lady in Wading
+393,25894,https://www.mobygames.com/game/25894/bumper-bash/,Bumper Bash
+394,25994,https://www.mobygames.com/game/25994/2-pak-special-cavern-blaster-city-war/,2 Pak Special: Cavern Blaster & City War
+395,26705,https://www.mobygames.com/game/26705/mangia/,Mangia'
+396,26915,https://www.mobygames.com/game/26915/sea-hawk/,Sea Hawk
+397,27830,https://www.mobygames.com/game/27830/escape-from-the-mindmaster/,Escape from the Mindmaster
+398,28028,https://www.mobygames.com/game/28028/funky-fish/,Funky Fish
+399,28032,https://www.mobygames.com/game/28032/pleiades/,Pleiades
+400,28046,https://www.mobygames.com/game/28046/the-challenge-of-nexar/,The Challenge of... NEXAR
+401,28048,https://www.mobygames.com/game/28048/rescue-terra-i/,Rescue Terra I
+402,28056,https://www.mobygames.com/game/28056/cat-trax/,Cat Trax
+403,28171,https://www.mobygames.com/game/28171/gas-hog/,Gas Hog
+404,28265,https://www.mobygames.com/game/28265/cross-force/,Cross Force
+405,28273,https://www.mobygames.com/game/28273/china-syndrome/,China Syndrome
+406,28280,https://www.mobygames.com/game/28280/gangster-alley/,Gangster Alley
+407,28359,https://www.mobygames.com/game/28359/planet-patrol/,Planet Patrol
+408,28375,https://www.mobygames.com/game/28375/master-builder/,Master Builder
+409,28452,https://www.mobygames.com/game/28452/party-mix/,Party Mix
+410,28468,https://www.mobygames.com/game/28468/killer-satellites/,Killer Satellites
+411,28518,https://www.mobygames.com/game/28518/rabbit-transit/,Rabbit Transit
+412,28519,https://www.mobygames.com/game/28519/survival-island/,Survival Island
+413,28537,https://www.mobygames.com/game/28537/sword-of-saros/,Sword of Saros
+414,28623,https://www.mobygames.com/game/28623/swordfight/,Swordfight
+415,28729,https://www.mobygames.com/game/28729/elevators-amiss/,Elevators Amiss
+416,28761,https://www.mobygames.com/game/28761/squish-em/,Squish 'em
+417,29078,https://www.mobygames.com/game/29078/encaved/,Encaved
+418,29095,https://www.mobygames.com/game/29095/cosmic-creeps/,Cosmic Creeps
+419,29118,https://www.mobygames.com/game/29118/combat-two/,Combat Two
+420,29128,https://www.mobygames.com/game/29128/espial/,Espial
+421,29142,https://www.mobygames.com/game/29142/demolition-herby/,Demolition Herby
+422,29164,https://www.mobygames.com/game/29164/fast-food/,Fast Food
+423,29165,https://www.mobygames.com/game/29165/ram-it/,Ram It
+424,29166,https://www.mobygames.com/game/29166/stargunner/,Stargunner
+425,29167,https://www.mobygames.com/game/29167/king-kong/,King Kong
+426,29171,https://www.mobygames.com/game/29171/marauder/,Marauder
+427,29173,https://www.mobygames.com/game/29173/miner-2049er-volume-ii/,Miner 2049er Volume II
+428,29190,https://www.mobygames.com/game/29190/polaris/,Polaris
+429,29193,https://www.mobygames.com/game/29193/river-patrol/,River Patrol
+430,29197,https://www.mobygames.com/game/29197/springer/,Springer
+431,29270,https://www.mobygames.com/game/29270/gosub/,GoSub
+432,29277,https://www.mobygames.com/game/29277/qb/,Qb
+433,29301,https://www.mobygames.com/game/29301/climber-5/,Climber 5
+434,29318,https://www.mobygames.com/game/29318/gunfight/,Gunfight
+435,29322,https://www.mobygames.com/game/29322/jammed/,Jammed
+436,29323,https://www.mobygames.com/game/29323/marble-craze/,Marble Craze
+437,29324,https://www.mobygames.com/game/29324/oystron/,Oystron
+438,29369,https://www.mobygames.com/game/29369/seawolf/,Seawolf
+439,29370,https://www.mobygames.com/game/29370/space-instigators/,Space Instigators
+440,29371,https://www.mobygames.com/game/29371/star-fire/,Star Fire
+441,29377,https://www.mobygames.com/game/29377/dark-mage/,Dark Mage
+442,29382,https://www.mobygames.com/game/29382/bugs-bunny/,Bugs Bunny
+443,29383,https://www.mobygames.com/game/29383/holey-moley/,Holey Moley
+444,29392,https://www.mobygames.com/game/29392/pick-up/,Pick Up
+445,29401,https://www.mobygames.com/game/29401/polo/,Polo
+446,29404,https://www.mobygames.com/game/29404/realsports-basketball/,RealSports Basketball
+447,29405,https://www.mobygames.com/game/29405/revenge-of-the-apes/,Revenge of the Apes
+448,29421,https://www.mobygames.com/game/29421/saboteur/,Saboteur
+449,29424,https://www.mobygames.com/game/29424/save-the-whales/,Save the Whales
+450,29425,https://www.mobygames.com/game/29425/secret-agent/,Secret Agent
+451,29426,https://www.mobygames.com/game/29426/snow-white-and-the-seven-dwarfs/,Snow White and the Seven Dwarfs
+452,29432,https://www.mobygames.com/game/29432/atariage-holiday-greetings-2004/,AtariAge Holiday Greetings 2004
+453,29454,https://www.mobygames.com/game/29454/astar/,AStar
+454,29455,https://www.mobygames.com/game/29455/blip-football/,BLiP FOOtBaLL
+455,29459,https://www.mobygames.com/game/29459/e-t-book-cart/,E. T. Book Cart
+456,29461,https://www.mobygames.com/game/29461/four-play/,Four-Play
+457,29468,https://www.mobygames.com/game/29468/edtris-2600/,Edtris 2600
+458,29481,https://www.mobygames.com/game/29481/backfire/,Backfire
+459,29482,https://www.mobygames.com/game/29482/caverns-of-mars/,Caverns of Mars
+460,29490,https://www.mobygames.com/game/29490/atariage-holiday-greetings-2005/,AtariAge Holiday Greetings 2005
+461,29510,https://www.mobygames.com/game/29510/crazy-balloon/,Crazy Balloon
+462,29512,https://www.mobygames.com/game/29512/crazy-valet/,Crazy Valet
+463,29514,https://www.mobygames.com/game/29514/crazy-valet-cge/,Crazy Valet CGE
+464,29515,https://www.mobygames.com/game/29515/qb-special-edition/,Qb (Special Edition)
+465,29538,https://www.mobygames.com/game/29538/joustpong/,JoustPong
+466,29553,https://www.mobygames.com/game/29553/euchre/,Euchre
+467,29554,https://www.mobygames.com/game/29554/fall-down/,Fall Down
+468,29555,https://www.mobygames.com/game/29555/atariage-holiday-greetings-2006/,AtariAge Holiday Greetings 2006
+469,29561,https://www.mobygames.com/game/29561/the-lord-of-the-rings-the-fellowship-of-the-ring/,The Lord of the Rings: The Fellowship of the Ring
+470,29563,https://www.mobygames.com/game/29563/go-fish/,Go Fish!
+471,29564,https://www.mobygames.com/game/29564/inv/,INV
+472,29565,https://www.mobygames.com/game/29565/inv/,INV+
+473,29567,https://www.mobygames.com/game/29567/medieval-mayhem/,Medieval Mayhem
+474,29576,https://www.mobygames.com/game/29576/mental-kombat/,Mental Kombat
+475,29580,https://www.mobygames.com/game/29580/phantom-ii/,Phantom II
+476,29582,https://www.mobygames.com/game/29582/poker-squres/,Poker Squ♠res
+477,29602,https://www.mobygames.com/game/29602/rainbow-invaders/,Rainbow Invaders
+478,29604,https://www.mobygames.com/game/29604/scsicide/,SCSIcide
+479,29645,https://www.mobygames.com/game/29645/skeleton/,Skeleton
+480,29647,https://www.mobygames.com/game/29647/skeleton/,Skeleton+
+481,29657,https://www.mobygames.com/game/29657/space-battle/,Space Battle
+482,29660,https://www.mobygames.com/game/29660/okie-dokie/,Okie Dokie
+483,29661,https://www.mobygames.com/game/29661/stell-a-sketchokie-dokie/,Stell-A-Sketch/Okie Dokie
+484,29718,https://www.mobygames.com/game/29718/warring-worms/,Warring Worms
+485,29719,https://www.mobygames.com/game/29719/warring-worms-the-worm-returns/,Warring Worms: The Worm (re)Turns
+486,29729,https://www.mobygames.com/game/29729/solar-plexus/,Solar Plexus
+487,29736,https://www.mobygames.com/game/29736/space-treat/,Space Treat
+488,29739,https://www.mobygames.com/game/29739/space-treat-deluxe/,Space Treat Deluxe
+489,29751,https://www.mobygames.com/game/29751/strat-o-gems-deluxe/,Strat O Gems Deluxe
+490,29755,https://www.mobygames.com/game/29755/ultra-scsicide/,Ultra SCSIcide
+491,29768,https://www.mobygames.com/game/29768/swoops/,Swoops!
+492,29793,https://www.mobygames.com/game/29793/this-planet-sucks/,This Planet Sucks!
+493,29794,https://www.mobygames.com/game/29794/vault-assault/,Vault Assault
+494,29805,https://www.mobygames.com/game/29805/alfred-challenge/,Alfred Challenge
+495,29818,https://www.mobygames.com/game/29818/merlins-walls/,Merlin's Walls
+496,29821,https://www.mobygames.com/game/29821/allia-quest/,Allia Quest
+497,29834,https://www.mobygames.com/game/29834/pesco/,Pesco
+498,29835,https://www.mobygames.com/game/29835/power-off/,Power Off!
+499,29929,https://www.mobygames.com/game/29929/avcstec-challenge/,AVCStec Challenge
+500,30224,https://www.mobygames.com/game/30224/alligator-people/,Alligator People
+501,31225,https://www.mobygames.com/game/31225/rush-hour/,Rush Hour
+502,31269,https://www.mobygames.com/game/31269/vault-assault-tournament-edition/,Vault Assault: Tournament Edition
+503,31821,https://www.mobygames.com/game/31821/atariage-holiday-greetings-2007/,AtariAge Holiday Greetings 2007
+504,31822,https://www.mobygames.com/game/31822/raster-fahndung/,Raster Fahndung
+505,32198,https://www.mobygames.com/game/32198/wolfenstein-vcs/,Wolfenstein VCS
+506,32199,https://www.mobygames.com/game/32199/wolfenstein-vcs-the-next-mission/,Wolfenstein VCS: The Next Mission
+507,32276,https://www.mobygames.com/game/32276/colony-7/,Colony 7
+508,32277,https://www.mobygames.com/game/32277/gingerbread-man/,Gingerbread Man
+509,33488,https://www.mobygames.com/game/33488/gamma-attack/,Gamma-Attack
+510,34650,https://www.mobygames.com/game/34650/2-pak-special-space-voyage-fire-alert/,2 Pak Special: Space Voyage & Fire Alert
+511,35225,https://www.mobygames.com/game/35225/bee-ball/,Bee-Ball
+512,35230,https://www.mobygames.com/game/35230/melbourne-tatty/,Melbourne Tatty
+513,35231,https://www.mobygames.com/game/35231/sync/,Sync
+514,35245,https://www.mobygames.com/game/35245/combat-redux/,Combat Redux
+515,35246,https://www.mobygames.com/game/35246/indy-500-xe/,Indy 500 XE
+516,35247,https://www.mobygames.com/game/35247/miniature-golf/,Miniature Golf +
+517,35248,https://www.mobygames.com/game/35248/adventure-plus/,Adventure Plus
+518,35249,https://www.mobygames.com/game/35249/x3v0lux/,X3V0LuX
+519,35250,https://www.mobygames.com/game/35250/venture-ii-the-abysmal-abyss/,Venture II: The Abysmal Abyss
+520,35360,https://www.mobygames.com/game/35360/off-your-rocker/,Off Your Rocker
+521,35383,https://www.mobygames.com/game/35383/a-better-pac-man/,A Better Pac-Man
+522,35385,https://www.mobygames.com/game/35385/space-invaders-arcade/,Space Invaders Arcade
+523,35388,https://www.mobygames.com/game/35388/asteroids-dc/,Asteroids DC+
+524,35389,https://www.mobygames.com/game/35389/berzerk/,Berzerk
+525,35390,https://www.mobygames.com/game/35390/return-of-mario-bros/,Return of Mario Bros.
+526,35392,https://www.mobygames.com/game/35392/galaxian-arcade/,Galaxian Arcade
+527,35393,https://www.mobygames.com/game/35393/combat-rock/,Combat Rock
+528,35415,https://www.mobygames.com/game/35415/missile-command-tb/,Missile Command TB
+529,35846,https://www.mobygames.com/game/35846/actionauts/,Actionauts
+530,36172,https://www.mobygames.com/game/36172/vgevo-gorf/,VGEvo Gorf
+531,36272,https://www.mobygames.com/game/36272/xonox-double-ender-artillery-duel-and-spikes-peak/,Xonox Double Ender: Artillery Duel and Spike's Peak
+532,37821,https://www.mobygames.com/game/37821/motocross/,Motocross
+533,38460,https://www.mobygames.com/game/38460/eddy-langfinger-der-museumsdieb/,"Eddy Langfinger, der Museumsdieb"
+534,38745,https://www.mobygames.com/game/38745/surfers-paradise-but-danger-below/,Surfer's Paradise But Danger Below!
+535,38815,https://www.mobygames.com/game/38815/phantom-panzer/,Phantom-Panzer
+536,38835,https://www.mobygames.com/game/38835/missile-control/,Missile Control
+537,38838,https://www.mobygames.com/game/38838/pac-kong/,Pac-Kong
+538,39536,https://www.mobygames.com/game/39536/cubicolor/,Cubicolor
+539,41398,https://www.mobygames.com/game/41398/spiderdroid/,Spiderdroid
+540,43520,https://www.mobygames.com/game/43520/othello/,Othello
+541,44340,https://www.mobygames.com/game/44340/pressure-gauge/,Pressure Gauge
+542,46753,https://www.mobygames.com/game/46753/gremlins/,Gremlins
+543,47124,https://www.mobygames.com/game/47124/forest/,Forest
+544,50840,https://www.mobygames.com/game/50840/atlantis-ii/,Atlantis II
+545,51492,https://www.mobygames.com/game/51492/jawbreaker/,Jawbreaker
+546,53725,https://www.mobygames.com/game/53725/dishaster/,Dishaster
+547,53726,https://www.mobygames.com/game/53726/tanks-but-no-tanks/,Tanks But No Tanks
+548,54654,https://www.mobygames.com/game/54654/i-want-my-mommy/,I Want My Mommy
+549,55659,https://www.mobygames.com/game/55659/seaweed-assault/,Seaweed Assault
+550,58239,https://www.mobygames.com/game/58239/space-war/,Space War
+551,60944,https://www.mobygames.com/game/60944/candy-catcher/,Candy Catcher
+552,66780,https://www.mobygames.com/game/66780/desert-bus-2600/,Desert Bus 2600
+553,69185,https://www.mobygames.com/game/69185/missile-war/,Missile War
+554,69494,https://www.mobygames.com/game/69494/a-slow-year/,A Slow Year
+555,70330,https://www.mobygames.com/game/70330/ghostbusters-ii/,Ghostbusters II
+556,76356,https://www.mobygames.com/game/76356/halo-2600/,Halo 2600
+557,79087,https://www.mobygames.com/game/79087/cosmic-corridor/,Cosmic Corridor
+558,83717,https://www.mobygames.com/game/83717/stuntman/,Stuntman
+559,88522,https://www.mobygames.com/game/88522/challenge/,Challenge
+560,88670,https://www.mobygames.com/game/88670/polybius/,Polybius
+561,88698,https://www.mobygames.com/game/88698/polybius-agent-edition/,Polybius (Agent Edition)
+562,88815,https://www.mobygames.com/game/88815/bobby-is-going-home/,Bobby is Going Home
+563,89732,https://www.mobygames.com/game/89732/condor-attack/,Condor Attack
+564,90151,https://www.mobygames.com/game/90151/ground-zero/,Ground Zero
+565,92845,https://www.mobygames.com/game/92845/assembloids-2600/,Assembloids 2600
+566,100467,https://www.mobygames.com/game/100467/lem/,L.E.M.
+567,103128,https://www.mobygames.com/game/103128/tron-special-pack/,TRON: Special Pack
+568,108839,https://www.mobygames.com/game/108839/the-end-of-the-world/,The End of the World
+569,108840,https://www.mobygames.com/game/108840/ski-hunt/,Ski Hunt
+570,129829,https://www.mobygames.com/game/129829/extra-terrestrials/,Extra Terrestrials
+571,136484,https://www.mobygames.com/game/136484/extra-terrestrials-special-edition/,Extra Terrestrials (Special Edition)
+572,136812,https://www.mobygames.com/game/136812/flappy/,Flappy
+573,139669,https://www.mobygames.com/game/139669/pete-rose-baseball/,Pete Rose Baseball
+574,139978,https://www.mobygames.com/game/139978/princess-rescue/,Princess Rescue
+575,140422,https://www.mobygames.com/game/140422/epic-adventure/,Epic Adventure
+576,140427,https://www.mobygames.com/game/140427/dragons-descent/,Dragon's Descent
+577,143906,https://www.mobygames.com/game/143906/cubis/,Cubis
+578,144892,https://www.mobygames.com/game/144892/bomb-on-pixel-city/,Bomb on Pixel City
+579,145647,https://www.mobygames.com/game/145647/birthday-mania/,Birthday Mania
+580,148419,https://www.mobygames.com/game/148419/lady-bug/,Lady Bug
+581,152027,https://www.mobygames.com/game/152027/nuts/,Nuts
+582,161375,https://www.mobygames.com/game/161375/pharaohs-curse/,Pharaoh's Curse
+583,169643,https://www.mobygames.com/game/169643/ninjish-guy-in-low-res-world/,Ninjish Guy in Low Res World
+584,171672,https://www.mobygames.com/game/171672/carrot-kingdom/,Carrot Kingdom
+585,172514,https://www.mobygames.com/game/172514/a-roach-in-space/,A Roach in Space
+586,172515,https://www.mobygames.com/game/172515/zaxxon/,Zaxxon
+587,173739,https://www.mobygames.com/game/173739/deepstone-catacomb/,Deepstone Catacomb
+588,180817,https://www.mobygames.com/game/180817/my-golf/,My Golf
+589,184491,https://www.mobygames.com/game/184491/game-of-the-bear/,Game of the Bear
+590,184555,https://www.mobygames.com/game/184555/escape-from-the-castle/,Escape from the Castle
+591,184580,https://www.mobygames.com/game/184580/unholy/,Unholy
+592,190805,https://www.mobygames.com/game/190805/rad-action-pak/,Rad Action Pak
+593,196551,https://www.mobygames.com/game/196551/pac-man/,Pac-Man
+594,196938,https://www.mobygames.com/game/196938/atrix/,Atrix
+595,198784,https://www.mobygames.com/game/198784/masters-of-the-universe-the-power-of-he-man/,Masters of the Universe: The Power of He-Man
+596,201139,https://www.mobygames.com/game/201139/asteroid-fire/,Asteroid Fire
+597,202253,https://www.mobygames.com/game/202253/man-goes-down/,Man Goes Down
