@@ -1,5 +1,4 @@
-# videogame
-From Pixels to Titles: Video Game Identification by Screenshots using Convolutional Neural Networks
+# From Pixels to Titles: Video Game Identification by Screenshots using Convolutional Neural Networks
 
 This repository has the code used to produce the results in the above-mentioned paper.
 
