@@ -13,28 +13,31 @@ Required packages:
     pillow
 """
 
+from videogame_config import vg_config
+conf = vg_config()
+
+import os
+# For some models, when jit_compile='auto' in model.compile, TF_DETERMINISTIC_OPS has to be disabled
+# due to error: "GPU MaxPool gradient ops do not yet have a deterministic XLA implementation":
+os.environ['TF_DETERMINISTIC_OPS'] = conf.TF_DETERMINISTIC_OPS
+os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
+SEED = 1980
+os.environ['PYTHONHASHSEED'] = str(SEED)
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.layers import Flatten, Dense, Dropout
-from tensorflow.keras.models import Model
-import tensorflow as tf
 #from sklearn.metrics import confusion_matrix
-import os
 import random
 from datetime import datetime, timedelta
 from time import perf_counter
 import PIL
 import sys
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import tensorflow as tf
 
-from videogame_config import vg_config
-conf = vg_config()
+from tensorflow.keras.layers import Flatten, Dense, Dropout
+from tensorflow.keras.models import Model    
 
-os.environ['TF_DETERMINISTIC_OPS'] = '1'
-os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
-SEED = 1980
-os.environ['PYTHONHASHSEED'] = str(SEED)
 random.seed(SEED)
 tf.random.set_seed(SEED)
 np.random.seed(SEED)
@@ -250,6 +253,11 @@ def train_model(df, model, preprocessing_function, image_size, batch_size, platf
     
     return model
  
+def print_and_log(arg):
+     print(arg)
+     with open(log_filename,"a+") as f_log:
+         f_log.write(arg + "\n")        
+ 
 # Main
 if __name__ == "__main__":
     
@@ -258,30 +266,29 @@ if __name__ == "__main__":
     hostname = socket.gethostname()
     
     # create filenames
-    log_filename = "videogame-" + hostname + ".log"
-    csv_filename = "videogame-" + hostname + ".csv"
+    log_filename = "videogame-" + conf.MODEL_TYPE + "-" + str(conf.WEIGHTS) + "-saveweights-" + hostname + ".log"
     
     # write log header
-    with open(log_filename,"a+") as f_log:
-        f_log.write("Machine: %s\n" % hostname)
-        now = datetime.now()
-        f_log.write(now.strftime("Date: %d/%m/%Y Time: %H:%M:%S\n"))
-        f_log.write("Model: %s\n" % conf.MODEL_TYPE)
-        f_log.write("Pooling Application Layer: %s\n" % conf.POOLING)
-        f_log.write("Data Augmentation: %s\n" % conf.DATA_AUG)  
-        f_log.write("Data Augmentation Multiplier: %s\n" % conf.DATA_AUG_MULT)
-        f_log.write("Fine Tuning: %s\n" % conf.FINE_TUN)
-        f_log.write("Multi Optimizer: %s\n" % conf.MULTI_OPTIMIZER)
-        f_log.write("Optimizer: %s\n" % conf.OPTIMIZER)    
-        f_log.write("Batch Size: %s\n" % conf.BATCH_SIZE)
-        f_log.write("Restore Best Weights: %s\n\n" % conf.REST_BEST_W)
+    print_and_log("Machine: %s" % hostname)
+    now = datetime.now()
+    print_and_log(now.strftime("Date: %d/%m/%Y Time: %H:%M:%S"))
+    print_and_log("Model: %s" % conf.MODEL_TYPE)
+    print_and_log("Weights: %s" % conf.WEIGHTS)
+    print_and_log("Pooling Application Layer: %s" % conf.POOLING)
+    print_and_log("Data Augmentation: %s" % conf.DATA_AUG)  
+    print_and_log("Data Augmentation Multiplier: %s" % conf.DATA_AUG_MULT)
+    print_and_log("Fine Tuning: %s" % conf.FINE_TUN)
+    print_and_log("Multi Optimizer: %s" % conf.MULTI_OPTIMIZER)
+    print_and_log("Optimizer: %s" % conf.OPTIMIZER)    
+    print_and_log("Batch Size: %s" % conf.BATCH_SIZE)
+    print_and_log("Deterministic OPs: %s" % conf.TF_DETERMINISTIC_OPS)        
+    print_and_log("Restore Best Weights: %s\n" % conf.REST_BEST_W)        
          
-    df, total_games, total_screenshots, selected_games, selected_screenshots = load_data(conf.PLATFORM)    
-
-    with open(log_filename,"a+") as f_log:
-        f_log.write("Platform: %s - %s\n" % (conf.PLATFORM, conf.platform_info.get(conf.PLATFORM)))
-        f_log.write("Selected Games: %i / %i\n" % (selected_games, total_games))
-        f_log.write("Selected Screenshots: %i / %i\n\n" % (selected_screenshots, total_screenshots))
+    df, total_games, total_screenshots, selected_games, selected_screenshots = load_data(conf.SAVE_WEIGHTS_PLATFORM)    
+    
+    print_and_log("Platform: %s - %s" % (conf.SAVE_WEIGHTS_PLATFORM, conf.platform_info.get(conf.SAVE_WEIGHTS_PLATFORM)))
+    print_and_log("Selected Games: %i / %i" % (selected_games, total_games))
+    print_and_log("Selected Screenshots: %i / %i\n" % (selected_screenshots, total_screenshots))
 
     # Even after all images are "validated" (opened by PIL without errors), 
     # sometimes one would still thrown an error "image file is truncated (0 bytes not processed)"
@@ -293,7 +300,7 @@ if __name__ == "__main__":
                 
     batch_size = conf.BATCH_SIZE
     model, preprocessing_function, image_size = create_model(conf.MODEL_TYPE, selected_games)
-    model = train_model(df,model,preprocessing_function,image_size, batch_size, conf.PLATFORM)            
+    model = train_model(df,model,preprocessing_function,image_size, batch_size, conf.SAVE_WEIGHTS_PLATFORM)            
 
     # remove the classification layer before saving weights
     output = model.layers[-2].output
@@ -301,7 +308,7 @@ if __name__ == "__main__":
     compile_model(model)
     
     # save weights
-    model.save_weights("weights/weights-" + conf.MODEL_TYPE + ".h5")
+    model.save_weights("weights/" + conf.MODEL_TYPE + ".weights.h5")
                     
     t1_stop = perf_counter()
     t1_elapsed = t1_stop-t1_start
@@ -323,5 +330,4 @@ if __name__ == "__main__":
     # Format the elapsed time
     formatted_time = ', '.join(time_components)
     
-    with open(log_filename,"a+") as f_log:
-        f_log.write("Elapsed time: {}.\n\n".format(formatted_time))
+    print_and_log("Elapsed time: {}.\n\n".format(formatted_time))

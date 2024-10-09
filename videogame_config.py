@@ -21,67 +21,72 @@ class vg_config():
         self.OPTIMIZER = 'Adam' # 'RMSprop', 'Adam', etc. Note: IJCNN results with rmsprop
         self.REST_BEST_W = False                
         self.DATASET_PATH = "./data/screenshots/"
-        #self.MODEL_TYPE_LIST = ['MobileNet', 'DenseNet169', 'EfficientNetB0', 'EfficientNetB2']        
+        self.USE_PROCESS = True
+        self.DATA_AUG = False
+        self.PLATFORM_START = 1
+        self.PLATFORM_END = 22
+        self.TF_DETERMINISTIC_OPS = '1' # 0 - DenseNet, 1 - EfficientNet, Swin
+        self.SAVE_WEIGHTS_PLATFORM = 23
+        self.INTERPOLATION = 'nearest'
+        self.MULTI_GPU = False
+        
+        # With MULTI_GPU = RTX 4060Ti 16GB + RTX2060 SUPER 8GB:
+        # Model           MULTI_GPU     RTX 4060Ti alone
+        # SwinT           ~500ms/step   ~2s/step
+        # DenseNet201     ~500ms/step   ~140ms/step
+        # EfficientNetV2S ~560ms/step   ~260ms/step
 
         self.platform_info = {
-            28:     "Atari 2600",
-            22:     "NES",
-            26:     "Master System",
-            40:     "PC Engine",
-            16:     "Mega Drive",
-            15:     "Super Nintendo",
-            23:     "Sega Saturn",
-            6:      "PlayStation",
-            9:      "Nintendo 64",
-            8:      "Dreamcast",
-            7:      "PlayStation 2",
-            14:     "GameCube",
-            13:     "Xbox",
-            69:     "Xbox 360",
-            81:     "PlayStation 3",
-            82:     "Wii",
-            132:    "Wii U",
-            141:    "PlayStation 4",
-            142:    "Xbox One",
-            203:    "Nintendo Switch",
-            289:    "Xbox Series",
-            288:    "PlayStation 5",
-            143:    "Arcade"
+            28:     "Atari 2600",       #1
+            22:     "NES",              #2
+            26:     "Master System",    #3
+            40:     "PC Engine",        #4
+            16:     "Mega Drive",       #5
+            15:     "Super Nintendo",   #6
+            23:     "Sega Saturn",      #7
+            6:      "PlayStation",      #8
+            9:      "Nintendo 64",      #9
+            8:      "Dreamcast",        #10
+            7:      "PlayStation 2",    #11
+            14:     "GameCube",         #12
+            13:     "Xbox",             #13
+            69:     "Xbox 360",         #14
+            81:     "PlayStation 3",    #15
+            82:     "Wii",              #16
+            132:    "Wii U",            #17
+            141:    "PlayStation 4",    #18
+            142:    "Xbox One",         #19
+            203:    "Nintendo Switch",  #20
+            289:    "Xbox Series",      #21
+            288:    "PlayStation 5",    #22
+            143:    "Arcade"            #23
         }
         
         import socket
         hostname = socket.gethostname()
         
         if hostname=='DONALD':
-            self.MODEL_TYPE_START = 1
-            self.MODEL_TYPE_END = 1
-            #self.PLATFORM = 143
             self.PLATFORM_START = 1
             self.PLATFORM_END = 22
-            self.MODEL_TYPE_LIST = ['EfficientNetV2S']
-            self.MODEL_TYPE = 'EfficientNetB3'
-            #self.MODEL = 'EfficientNetV2S'            
+            self.MODEL_TYPE = 'EfficientNetV2S'
+            self.WEIGHTS = 'imagenet' # 'imagenet', None, 'arcade'
+            self.TF_DETERMINISTIC_OPS = '1' # 0 - DenseNet201, 1 - Others
+            self.USE_PROCESS = True # True will run TensorFlow in separate processes.
+            self.DATA_AUG = False # True, False
+            #self.INTERPOLATION = 'lanczos'
+            self.MULTI_GPU = False
             #self.PCA_COMPONENTS = 0.99
             
         elif hostname=='PRECISION':
-            self.MODEL_TYPE_START = 1
-            self.MODEL_TYPE_END = 1
-            self.PLATFORM = 143
-            self.PLATFORM_START = 1
-            self.PLATFORM_END = 22      
-            self.MODEL_TYPE_LIST = ['EfficientNetB3']
-            self.MODEL_TYPE = 'EfficientNetB3'
-            
-        elif hostname=='SNOOPY': 
-            self.MODEL_TYPE_START = 1
-            self.MODEL_TYPE_END = 1
-            #self.PLATFORM = 143
-            self.PLATFORM_START = 1
+            self.PLATFORM_START = 14
             self.PLATFORM_END = 22
-            self.MODEL_TYPE_LIST = ['DenseNet169']
-            self.MODEL_TYPE = 'DenseNet169'
-            #self.PCA_COMPONENTS = 0.99
-        
+            self.MODEL_TYPE = 'EfficientNetV2S'
+            self.WEIGHTS = 'imagenet' # 'imagenet', None, 'arcade'
+            self.TF_DETERMINISTIC_OPS = '1' # 0 - DenseNet, 1 - EfficientNet
+            self.USE_PROCESS = True
+            self.DATA_AUG = False # True, False
+            self.INTERPOLATION = 'lanczos'
+                   
         else:
             print("ERROR: There is no configuration defined for this host.")        
             import sys

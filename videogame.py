@@ -13,26 +13,29 @@ Required packages:
     pillow
 """
 
+from videogame_config import vg_config
+conf = vg_config()
+
+import os
+# For some models, when jit_compile='auto' in model.compile, TF_DETERMINISTIC_OPS has to be disabled
+# due to error: "GPU MaxPool gradient ops do not yet have a deterministic XLA implementation":
+os.environ['TF_DETERMINISTIC_OPS'] = conf.TF_DETERMINISTIC_OPS
+os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
+SEED = 1980
+os.environ['PYTHONHASHSEED'] = str(SEED)
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import tensorflow as tf
 #from sklearn.metrics import confusion_matrix
-import os
 import random
 from datetime import datetime, timedelta
 from time import perf_counter
 import PIL
 import sys
+import multiprocessing as mp
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import tensorflow as tf
 
-from videogame_config import vg_config
-conf = vg_config()
-
-os.environ['TF_DETERMINISTIC_OPS'] = '1'
-os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
-SEED = 1980
-os.environ['PYTHONHASHSEED'] = str(SEED)
 random.seed(SEED)
 tf.random.set_seed(SEED)
 np.random.seed(SEED)
@@ -85,65 +88,152 @@ def load_data(platform):
     return df, total_games, total_screenshots, selected_games, selected_screenshots
 
 def create_model(model_type, class_count):
-    model_dic = {
-        'VGG16': ['vgg16', 224, 224],
-        'VGG19': ['vgg19', 224, 224],
-        'Xception': ['xception', 299, 299],
-        'ResNet50': ['resnet', 224, 224],
-        'ResNet101': ['resnet', 224, 224],
-        'ResNet152': ['resnet', 224, 224],
-        'ResNet50V2': ['resnet_v2', 224, 224],
-        'ResNet101V2': ['resnet_v2', 224, 224],
-        'ResNet152V2': ['resnet_v2', 224, 224],
-        'InceptionV3': ['inception_v3', 299, 299],
-        'InceptionResNetV2': ['inception_resnet_v2', 299, 299],
-        'MobileNet': ['mobilenet', 224, 224],
-        'DenseNet121': ['densenet', 224, 224],
-        'DenseNet169': ['densenet', 224, 224],
-        'DenseNet201': ['densenet', 224, 224],
-        'NASNetLarge': ['nasnet', 331, 331],
-        'NASNetMobile': ['nasnet', 224, 224],
-        'MobileNetV2': ['mobilenet_v2', 224, 224],
-        'EfficientNetB0': ['efficientnet', 224, 224],
-        'EfficientNetB1': ['efficientnet', 240, 240],
-        'EfficientNetB2': ['efficientnet', 260, 260],
-        'EfficientNetB3': ['efficientnet', 300, 300],
-        'EfficientNetB4': ['efficientnet', 380, 380],
-        'EfficientNetB5': ['efficientnet', 456, 456],
-        'EfficientNetB6': ['efficientnet', 528, 528],
-        'EfficientNetB7': ['efficientnet', 600, 600],
-        'EfficientNetV2B2': ['efficientnet_v2', 260, 260],
-        'EfficientNetV2B3': ['efficientnet_v2', 300, 300],
-        'EfficientNetV2S': ['efficientnet_v2', 384, 384],
-        'EfficientNetV2M': ['efficientnet_v2', 480, 480],
-        'ConvNeXtTiny': ['convnext', 224, 224],
-        'ConvNeXtSmall': ['convnext', 224, 224],
-        'ConvNeXtBase': ['convnext', 224, 224]
-    }
-    
-    model_module = getattr(tf.keras.applications,model_dic[model_type][0])
-    model_function = getattr(model_module,model_type)
-    image_size = tuple(model_dic[model_type][1:])
-    model = model_function(weights='imagenet', include_top=False, pooling=conf.POOLING, input_shape=image_size + (conf.IMAGE_CHANNELS,))
-    preprocessing_function = getattr(model_module,'preprocess_input')
-    
-    from tensorflow.keras.layers import Flatten, Dense, Dropout
-    from tensorflow.keras.models import Model
-    
-    # mark loaded layers as not trainable
-    if conf.FINE_TUN == False:
-        for layer in model.layers:
-            layer.trainable = False
-	# add new classifier layers
-    flat1 = Flatten()(model.layers[-1].output)
-    
-    top_dropout_rate = 0.2
-    class1 = Dropout(top_dropout_rate, name="top_dropout")(flat1)  
+    from tensorflow.keras.layers import Dense, Dropout, Flatten
+    from tensorflow.keras.models import Model        
 
-    output = Dense(class_count, activation='softmax')(class1)
+    if model_type == 'ViT-B16':
+        image_size = (224, 224)
+        from vit_keras import vit         
+        model = vit.vit_b16(
+            image_size=image_size,
+            activation='sigmoid',
+            pretrained=True,
+            include_top=False,
+            pretrained_top=False,
+            classes=class_count
+        )        
+        top_dropout_rate = 0.2
+        class1 = Dropout(top_dropout_rate, name="top_dropout")(model.layers[-1].output) 
+        output = Dense(class_count, activation='softmax')(class1)
+                      
+        preprocessing_function = vit.preprocess_inputs        
+        
+        model = Model(inputs=model.inputs, outputs=output, name=model_type)
     
-    # define new model
-    model = Model(inputs=model.inputs, outputs=output, name=model_type)    
+    elif model_type == 'ViT-L32':
+        image_size = (384, 384)
+        from vit_keras import vit         
+        model = vit.vit_l32(
+            image_size=image_size,
+            activation='sigmoid',
+            pretrained=True,
+            include_top=False,
+            pretrained_top=False,
+            classes=class_count
+        )        
+        top_dropout_rate = 0.2
+        class1 = Dropout(top_dropout_rate, name="top_dropout")(model.layers[-1].output) 
+        output = Dense(class_count, activation='softmax')(class1)
+                      
+        preprocessing_function = vit.preprocess_inputs
+        
+        model = Model(inputs=model.inputs, outputs=output, name=model_type)                      
+
+    elif model_type == 'SwinTransformerTiny224':
+        # using include_top=False removes the input shape, the global average
+        # pooling, etc. therefore, it is better to load the full model and just
+        # replace the Dense/Activation layers.
+        image_size = (224, 224)
+        from tfswin import SwinTransformerTiny224
+        model = SwinTransformerTiny224()
+        top_dropout_rate = 0.2
+        class1 = Dropout(top_dropout_rate, name="top_dropout")(model.layers[-3].output)
+        output = Dense(class_count, activation='softmax')(class1)
+        model = Model(inputs=model.input, outputs=output, name=model_type)  
+
+        # the model does the normalization by itself by default        
+        preprocessing_function = None            
+  
+    elif model_type == 'SwinTransformerV2Tiny256':  
+        image_size = (256, 256)
+        from tfswin import SwinTransformerV2Tiny256
+        model = SwinTransformerV2Tiny256()
+        top_dropout_rate = 0.2
+        class1 = Dropout(top_dropout_rate, name="top_dropout")(model.layers[-3].output)
+        output = Dense(class_count, activation='softmax')(class1)
+        model = Model(inputs=model.input, outputs=output, name=model_type)  
+
+        # the model does the normalization by itself by default        
+        preprocessing_function = None          
+  
+    elif model_type == 'SwinTransformerV2Tiny256':
+        # using include_top=False removes the input shape, the global average
+        # pooling, etc.
+        # therefore, it is better to load the full model and just replace the
+        # Dense/Activation layers.        
+        image_size = (256, 256)
+        from tfswin import SwinTransformerV2Tiny256
+        model = SwinTransformerV2Tiny256()
+        top_dropout_rate = 0.2
+        class1 = Dropout(top_dropout_rate, name="top_dropout")(model.layers[-3].output)
+        output = Dense(class_count, activation='softmax')(class1)
+        model = Model(inputs=model.input, outputs=output, name=model_type)  
+
+        # the model does the normalization by itself by default        
+        preprocessing_function = None          
+    
+    else:
+        model_dic = {
+            'VGG16': ['vgg16', 224, 224],
+            'VGG19': ['vgg19', 224, 224],
+            'Xception': ['xception', 299, 299],
+            'ResNet50': ['resnet', 224, 224],
+            'ResNet101': ['resnet', 224, 224],
+            'ResNet152': ['resnet', 224, 224],
+            'ResNet50V2': ['resnet_v2', 224, 224],
+            'ResNet101V2': ['resnet_v2', 224, 224],
+            'ResNet152V2': ['resnet_v2', 224, 224],
+            'InceptionV3': ['inception_v3', 299, 299],
+            'InceptionResNetV2': ['inception_resnet_v2', 299, 299],
+            'MobileNet': ['mobilenet', 224, 224],
+            'DenseNet121': ['densenet', 224, 224],
+            'DenseNet169': ['densenet', 224, 224],
+            'DenseNet201': ['densenet', 224, 224],
+            'NASNetLarge': ['nasnet', 331, 331],
+            'NASNetMobile': ['nasnet', 224, 224],
+            'MobileNetV2': ['mobilenet_v2', 224, 224],
+            'EfficientNetB0': ['efficientnet', 224, 224],
+            'EfficientNetB1': ['efficientnet', 240, 240],
+            'EfficientNetB2': ['efficientnet', 260, 260],
+            'EfficientNetB3': ['efficientnet', 300, 300],
+            'EfficientNetB4': ['efficientnet', 380, 380],
+            'EfficientNetB5': ['efficientnet', 456, 456],
+            'EfficientNetB6': ['efficientnet', 528, 528],
+            'EfficientNetB7': ['efficientnet', 600, 600],
+            'EfficientNetV2B2': ['efficientnet_v2', 260, 260],
+            'EfficientNetV2B3': ['efficientnet_v2', 300, 300],
+            'EfficientNetV2S': ['efficientnet_v2', 384, 384],
+            'EfficientNetV2M': ['efficientnet_v2', 480, 480],
+            'ConvNeXtTiny': ['convnext', 224, 224],
+            'ConvNeXtSmall': ['convnext', 224, 224],
+            'ConvNeXtBase': ['convnext', 224, 224]
+        }
+        
+        model_module = getattr(tf.keras.applications,model_dic[model_type][0])
+        model_function = getattr(model_module,model_type)
+        image_size = tuple(model_dic[model_type][1:])
+    
+        if conf.WEIGHTS == 'arcade':
+            model = model_function(weights='weights/' + model_type + '.weights.h5', include_top=False, pooling=conf.POOLING, input_shape=image_size + (conf.IMAGE_CHANNELS,))
+        else:
+            model = model_function(weights=conf.WEIGHTS, include_top=False, pooling=conf.POOLING, input_shape=image_size + (conf.IMAGE_CHANNELS,))
+        
+        preprocessing_function = getattr(model_module,'preprocess_input')
+            
+        # mark loaded layers as not trainable
+        if conf.FINE_TUN == False:
+            for layer in model.layers:
+                layer.trainable = False
+        #add new classifier layers
+        flat1 = Flatten()(model.layers[-1].output)
+    
+        top_dropout_rate = 0.2
+        class1 = Dropout(top_dropout_rate, name="top_dropout")(flat1)  
+
+        output = Dense(class_count, activation='softmax')(class1)
+        
+        # define new model
+        model = Model(inputs=model.inputs, outputs=output, name=model_type)
 	
     compile_model(model)
     
@@ -159,9 +249,9 @@ def compile_model(model):
        
     optimizer = opt_func(learning_rate=1e-3)   
     
-    model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'], jit_compile="auto")
 
-def train_test_model(train_df, test_df, model, preprocessing_function, image_size, split, batch_size, platform):
+def train_test_model(train_df, test_df, model, preprocessing_function, image_size, split, batch_size, platform, retry):
    
     from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 
@@ -183,7 +273,7 @@ def train_test_model(train_df, test_df, model, preprocessing_function, image_siz
         callbacks = [earlystop, learning_rate_reduction]
                 
     train_df, validate_df = train_test_split(train_df, test_size=0.20, shuffle=True,
-                                             stratify=train_df.category, random_state=SEED)
+                                             stratify=train_df.category, random_state=SEED+retry)
     
     train_df = train_df.reset_index(drop=True)
     validate_df = validate_df.reset_index(drop=True)
@@ -227,7 +317,8 @@ def train_test_model(train_df, test_df, model, preprocessing_function, image_siz
         target_size=image_size,
         class_mode='categorical',
         batch_size=batch_size,
-        seed=SEED,
+        seed=SEED+retry,
+        interpolation=conf.INTERPOLATION,
     )
     
     validation_generator = validation_datagen.flow_from_dataframe(
@@ -238,7 +329,8 @@ def train_test_model(train_df, test_df, model, preprocessing_function, image_siz
         target_size=image_size,
         class_mode='categorical',
         batch_size=batch_size,    
-        seed=SEED,
+        seed=SEED+retry,
+        interpolation=conf.INTERPOLATION,
     )
 
     #import psutil
@@ -254,7 +346,7 @@ def train_test_model(train_df, test_df, model, preprocessing_function, image_siz
     )
 
     # save history
-    history_filename = "./results/history/vg-history-platform" + str(platform) + "-" + model.name + "-" + str(split) + ".npy"
+    history_filename = "./results/history/vg-history-platform" + str(platform) + "-" + model.name + "-" + str(conf.WEIGHTS) + "-" + str(split) + ".npy"
     os.makedirs(os.path.dirname(history_filename), exist_ok=True)
     np.save(history_filename,history.history)
 
@@ -271,37 +363,95 @@ def train_test_model(train_df, test_df, model, preprocessing_function, image_siz
          target_size=image_size,
          batch_size=batch_size,
          shuffle=False,
-         seed=SEED,
+         seed=SEED+retry,
+         interpolation=conf.INTERPOLATION,
     )
     
-    loss, acc = model.evaluate(test_generator, verbose='auto')
+    loss, acc = model.evaluate(test_generator, verbose="auto")
     
-    return acc
+    trained_epochs = len(history.history['loss'])
+    
+    return acc, trained_epochs
+
+def gpuconfig():
+    gpus = tf.config.list_physical_devices('GPU')
+    if gpus:
+        try:
+            # Currently, memory growth needs to be the same across GPUs
+            for gpu in gpus:
+                tf.config.experimental.set_memory_growth(gpu, True)
+            logical_gpus = tf.config.list_logical_devices('GPU')
+            print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPUs")
+        except RuntimeError as e:
+            # Memory growth must be set before GPUs have been initialized
+            print(e)    
+            
+def run_tf(train_df, test_df, index, batch_size, platform, selected_games, retry, ret_acc, ret_trained_epochs):            
+
+    gpuconfig()
+    try:    
+                       
+        if conf.MULTI_GPU:
+            #Create a MirroredStrategy
+            strategy = tf.distribute.MirroredStrategy()
+            ("Number of devices: {}\n".format(strategy.num_replicas_in_sync))                 
+            # Everything that creates variables should be under the strategy scope.
+            # In general this is only model construction & `compile()`.                       
+            with strategy.scope():
+                model, preprocessing_function, image_size = create_model(conf.MODEL_TYPE, selected_games)
+        else:
+            model, preprocessing_function, image_size = create_model(conf.MODEL_TYPE, selected_games)
+
+        acc, trained_epochs = train_test_model(train_df,test_df,model,preprocessing_function,image_size, index+1, batch_size, platform, retry)
+
+        ret_acc.value = acc
+        ret_trained_epochs.value = trained_epochs
+
+    except:
+        import sys
+        sys.exit(2)        
+
+def print_and_log(arg):
+     print(arg)
+     with open(log_filename,"a+") as f_log:
+         f_log.write(arg + "\n")     
  
 # Main
 if __name__ == "__main__":
-    
+       
     # get hostname for log-files
     import socket
     hostname = socket.gethostname()
     
-    # create filenames
-    log_filename = "videogame-" + hostname + ".log"
-    csv_filename = "videogame-" + hostname + ".csv"
-    
+    # create filenames    
+    log_filename = "videogame-" + conf.MODEL_TYPE + "-" + str(conf.WEIGHTS) + "-" + hostname + ".log"
+    csv_acc_filename = "videogame-" + conf.MODEL_TYPE + "-" + str(conf.WEIGHTS) + "-acc-" + hostname + ".csv"
+    csv_epc_filename = "videogame-" + conf.MODEL_TYPE + "-" + str(conf.WEIGHTS) + "-epc-" + hostname + ".csv"
+           
     # write log header
-    with open(log_filename,"a+") as f_log:
-        f_log.write("Machine: %s\n" % hostname)
-        now = datetime.now()
-        f_log.write(now.strftime("Date: %d/%m/%Y Time: %H:%M:%S\n"))
-        f_log.write("Pooling Application Layer: %s\n" % conf.POOLING)
-        f_log.write("Data Augmentation: %s\n" % conf.DATA_AUG)  
-        f_log.write("Data Augmentation Multiplier: %s\n" % conf.DATA_AUG_MULT)
-        f_log.write("Fine Tuning: %s\n" % conf.FINE_TUN)
-        f_log.write("Multi Optimizer: %s\n" % conf.MULTI_OPTIMIZER)
-        f_log.write("Optimizer: %s\n" % conf.OPTIMIZER)    
-        f_log.write("Batch Size: %s\n" % conf.BATCH_SIZE)
-        f_log.write("Restore Best Weights: %s\n\n" % conf.REST_BEST_W)
+    print_and_log("Machine: %s" % hostname)
+    now = datetime.now()
+    print_and_log(now.strftime("Date: %d/%m/%Y Time: %H:%M:%S"))
+    print_and_log("Model: %s" % conf.MODEL_TYPE)
+    print_and_log("Weights: %s" % conf.WEIGHTS)
+    print_and_log("Pooling Application Layer: %s" % conf.POOLING)
+    print_and_log("Data Augmentation: %s" % conf.DATA_AUG)
+    print_and_log("Fine Tuning: %s" % conf.FINE_TUN)
+    print_and_log("Multi Optimizer: %s" % conf.MULTI_OPTIMIZER)
+    print_and_log("Optimizer: %s" % conf.OPTIMIZER)
+    print_and_log("Batch Size: %s" % conf.BATCH_SIZE)
+    print_and_log("Interpolation: %s" % conf.INTERPOLATION)
+    print_and_log("Deterministic OPs: %s" % conf.TF_DETERMINISTIC_OPS)
+    print_and_log("Use Separate Processes for TensorFlow: %s" % conf.USE_PROCESS)
+    print_and_log("Use Multiple GPUs: %s" % conf.MULTI_GPU)
+    print_and_log("Restore Best Weights: %s\n" % conf.REST_BEST_W)            
+
+    if conf.USE_PROCESS==False:
+        gpuconfig()
+        if conf.MULTI_GPU:
+            #Create a MirroredStrategy
+            strategy = tf.distribute.MirroredStrategy()
+            ("Number of devices: {}\n".format(strategy.num_replicas_in_sync))     
 
     platform_list = list(conf.platform_info.keys())[conf.PLATFORM_START-1:conf.PLATFORM_END]
     
@@ -309,10 +459,9 @@ if __name__ == "__main__":
            
         df, total_games, total_screenshots, selected_games, selected_screenshots = load_data(platform)    
 
-        with open(log_filename,"a+") as f_log:
-            f_log.write("Platform: %s - %s\n" % (platform, conf.platform_info.get(platform)))
-            f_log.write("Selected Games: %i / %i\n" % (selected_games, total_games))
-            f_log.write("Selected Screenshots: %i / %i\n\n" % (selected_screenshots, total_screenshots))
+        print_and_log("Platform: %s - %s" % (platform, conf.platform_info.get(platform)))
+        print_and_log("Selected Games: %i / %i" % (selected_games, total_games))
+        print_and_log("Selected Screenshots: %i / %i\n" % (selected_screenshots, total_screenshots))
 
         # Even after all images are "validated" (opened by PIL without errors), 
         # sometimes one would still thrown an error "image file is truncated (0 bytes not processed)"
@@ -325,67 +474,93 @@ if __name__ == "__main__":
         kfold_n_splits = 5
         kf = StratifiedKFold(n_splits=kfold_n_splits, shuffle=True, random_state=SEED)
         kf.split(df,df.category)
+          
+        t1_start = perf_counter()
+                   
+        # vector to hold each fold accuracy
+        cvscores = []
+        cvepochs = []
 
-        model_type_list = conf.MODEL_TYPE_LIST[conf.MODEL_TYPE_START-1:conf.MODEL_TYPE_END]
+        batch_size = conf.BATCH_SIZE        
+            
+        # enumerate allow the usage of the index for prints
+        for index, [train, test] in enumerate(kf.split(df,df.category)):    
+            train_df = df.loc[train]
+            test_df = df.loc[test]            
+                                           
+            #Since TensorFlow is leaking memory and crashing randomly, I've
+            #decided to run it inside a process until it is successful. 
+            retry = 0            
+            if conf.USE_PROCESS:
+                while True:
+                    # the queue is used to get the return
+                    #q = mp.Queue() -> removed because if the child process crash, 
+                    #the parent gets stuck in q.get. I'd better use shared memory instead
+                    ret_acc = mp.Value('d', -1)
+                    ret_trained_epochs = mp.Value('d', -1)
+                    # start the process to run TensorFlow
+                    args = (train_df, test_df, index, batch_size, platform, 
+                            selected_games, retry, ret_acc, ret_trained_epochs)
+                    p = mp.Process(target=run_tf, args=args)
+                    p.start()
+                    p.join()
+                    # check for abnormal process termination
+                    if p.exitcode != 0:                                
+                        print_and_log(f"TensorFlow crashed with code: {p.exitcode}. Retrying...")
+                        retry = retry + 1
+                        continue
+                    else:
+                        # get the return from the process
+                        acc = ret_acc.value
+                        trained_epochs = ret_trained_epochs.value                    
+                        break        
+            else:
+                if conf.MULTI_GPU:
+                    # Everything that creates variables should be under the strategy scope.
+                    # In general this is only model construction & `compile()`.                       
+                    with strategy.scope():
+                        model, preprocessing_function, image_size = create_model(conf.MODEL_TYPE, selected_games)
+                else:
+                    model, preprocessing_function, image_size = create_model(conf.MODEL_TYPE, selected_games)
+
+                acc, trained_epochs = train_test_model(train_df,test_df,model,preprocessing_function,image_size, index+1, batch_size, platform, retry)                
+                                              
+            cvscores.append(acc)
+            cvepochs.append(trained_epochs)
+            
+            print_and_log(f"Fold: {(index+1)} of {kfold_n_splits} "
+                          f"Accuracy: {(acc*100):.2f}% "
+                          f"Mean: {np.mean(cvscores)*100:.2f}% "
+                          f"(+/- {np.std(cvscores)*100:.2f}) "
+                          f"Epochs: {trained_epochs} "
+                          f"Mean: {np.mean(cvepochs):.2f} "
+                          f"(+/- {np.std(cvepochs):.2f})"
+                          )
+            
+        # record results to csv files
+        with open(csv_acc_filename,"a+") as f_csv:
+            f_csv.write("%.4f, %.4f\n" % (np.mean(cvscores),np.std(cvscores)))
+        with open(csv_epc_filename,"a+") as f_csv:
+            f_csv.write("%.4f, %.4f\n" % (np.mean(cvepochs),np.std(cvepochs)))
+                
+        t1_stop = perf_counter()
+        t1_elapsed = t1_stop-t1_start
+        elapsed_time = timedelta(seconds=t1_elapsed)
     
-        for model_type in model_type_list:                  
-            
-            t1_start = perf_counter()
-                
-            # record platform and model type in the log file
-            with open(log_filename,"a+") as f_log:
-                f_log.write("Platform: %s - %s - " % (platform, conf.platform_info.get(platform)))
-                f_log.write("Model Type: %s\n" % model_type)
-            
-            # vector to hold each fold accuracy
-            cvscores = []
-
-            batch_size = conf.BATCH_SIZE
-                
-            # enumerate allow the usage of the index for prints
-            for index, [train, test] in enumerate(kf.split(df,df.category)):    
-                train_df = df.loc[train]
-                test_df = df.loc[test]            
-                
-                model, preprocessing_function, image_size = create_model(model_type, selected_games)
-                acc = train_test_model(train_df,test_df,model,preprocessing_function,image_size, index+1, batch_size, platform)            
-                          
-                cvscores.append(acc)
-                
-                # print results to screen
-                print("\nModel: %s Fold: %i of %i Acc: %.2f%%" % (model_type, index+1, kfold_n_splits, (acc*100)))
-                print("Mean: %.2f%% (+/- %.2f%%)\n" % (np.mean(cvscores)*100, np.std(cvscores)*100))
-                
-                #record log file
-                with open(log_filename,"a+") as f_log:
-                    f_log.write("Fold: %i of %i Acc: %.2f%% Mean: %.2f%% (+/- %.2f%%)\n" % (
-                    index+1, kfold_n_splits, (acc*100), np.mean(cvscores)*100, np.std(cvscores)*100)) 
-                
-            # record results to csv file
-            with open(csv_filename,"a+") as f_csv:
-                f_csv.write("%.4f" % np.mean(cvscores))
-                if model_type != model_type_list[-1]: f_csv.write(", ")
-                else: f_csv.write("\n")
-                    
-            t1_stop = perf_counter()
-            t1_elapsed = t1_stop-t1_start
-            elapsed_time = timedelta(seconds=t1_elapsed)
+        # Initialize an empty list to store the time components
+        time_components = []
         
-            # Initialize an empty list to store the time components
-            time_components = []
-            
-            # Check if each time component is greater than zero and add it to the list
-            if elapsed_time.days > 0:
-                time_components.append(f"{elapsed_time.days} days")
-            if elapsed_time.seconds // 3600 > 0:
-                time_components.append(f"{elapsed_time.seconds // 3600} hours")
-            if (elapsed_time.seconds % 3600) // 60 > 0:
-                time_components.append(f"{(elapsed_time.seconds % 3600) // 60} minutes")
-            if elapsed_time.seconds % 60 > 0:
-                time_components.append(f"{elapsed_time.seconds % 60} seconds")
-    
-            # Format the elapsed time
-            formatted_time = ', '.join(time_components)
-            
-            with open(log_filename,"a+") as f_log:
-                f_log.write("Elapsed time: {}.\n\n".format(formatted_time))
+        # Check if each time component is greater than zero and add it to the list
+        if elapsed_time.days > 0:
+            time_components.append(f"{elapsed_time.days} days")
+        if elapsed_time.seconds // 3600 > 0:
+            time_components.append(f"{elapsed_time.seconds // 3600} hours")
+        if (elapsed_time.seconds % 3600) // 60 > 0:
+            time_components.append(f"{(elapsed_time.seconds % 3600) // 60} minutes")
+        if elapsed_time.seconds % 60 > 0:
+            time_components.append(f"{elapsed_time.seconds % 60} seconds")
+
+        # Format the elapsed time
+        formatted_time = ', '.join(time_components)
+        
+        print_and_log("Elapsed time: {}.\n".format(formatted_time))
