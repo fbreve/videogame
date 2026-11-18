@@ -44,7 +44,20 @@ The configuration retains the original host-specific settings for `DONALD` and `
 
 If you use this code in academic work, please cite the paper:
 
-Breve, F. A. (2025). *From Pixels to Titles: Video Game Identification by Screenshots using Convolutional Neural Networks*. IEEE Transactions on Games.
+Breve, F. A. (2025). *From Pixels to Titles: Video Game Identification by Screenshots Using Convolutional Neural Networks*. IEEE Transactions on Games, 17(2), 536–544. https://doi.org/10.1109/TG.2025.3528187
+
+```bibtex
+@article{breve2025pixels,
+  author  = {Breve, Fabricio Aparecido},
+  title   = {From Pixels to Titles: Video Game Identification by Screenshots Using Convolutional Neural Networks},
+  journal = {IEEE Transactions on Games},
+  volume  = {17},
+  number  = {2},
+  pages   = {536--544},
+  year    = {2025},
+  doi     = {10.1109/TG.2025.3528187}
+}
+```
 
 [arXiv:2311.15963](https://arxiv.org/abs/2311.15963)
 
