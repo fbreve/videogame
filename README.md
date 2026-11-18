@@ -4,6 +4,7 @@ This repository contains the Python code, experiment metadata, selected model we
 
 > Breve, Fabricio Aparecido. **From Pixels to Titles: Video Game Identification by Screenshots using Convolutional Neural Networks.** *IEEE Transactions on Games*, 2025.
 
+- [Published article (DOI)](https://doi.org/10.1109/TG.2025.3528187)
 - [Preprint on arXiv](https://arxiv.org/abs/2311.15963)
 - [Author-hosted paper (PDF)](https://www.fabriciobreve.com/artigos/2025/tg-videogame.pdf)
 
