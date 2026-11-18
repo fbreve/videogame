@@ -29,6 +29,11 @@ class vg_config():
         self.SAVE_WEIGHTS_PLATFORM = 23
         self.INTERPOLATION = 'nearest'
         self.MULTI_GPU = False
+        # Portable defaults for hosts other than the original experiment machines.
+        # Host-specific overrides below retain the original configurations.
+        self.MODEL_TYPE = 'EfficientNetV2S'
+        self.WEIGHTS = 'imagenet'
+        self.PCA_COMPONENTS = None
         
         # With MULTI_GPU = RTX 4060Ti 16GB + RTX2060 SUPER 8GB:
         # Model           MULTI_GPU     RTX 4060Ti alone
@@ -88,6 +93,4 @@ class vg_config():
             self.INTERPOLATION = 'lanczos'
                    
         else:
-            print("ERROR: There is no configuration defined for this host.")        
-            import sys
-            sys.exit()
+            print("No host-specific configuration for %s; using portable defaults." % hostname)
