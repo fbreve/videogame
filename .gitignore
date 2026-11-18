@@ -2,6 +2,11 @@ data/screenshots/
 credentials.py
 unused
 
+# Temporary office files and local experiment artifacts
+~$*
+*.tmp
+*.bak
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
